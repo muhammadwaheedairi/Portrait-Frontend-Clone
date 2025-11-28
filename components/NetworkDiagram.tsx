@@ -11,20 +11,20 @@ const NetworkDiagram: React.FC = () => {
           </div>
           
           {/* Headline */}
-          <h2 className="text-5xl md:text-6xl font-bold text-brand-dark mb-8 tracking-tight leading-[1.1]">
+          <h2 className="text-4xl md:text-6xl font-bold text-brand-dark mb-8 tracking-tight leading-[1.1]">
             A global <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 pr-2">network</span> for your<br />
             identity, powered by people.
           </h2>
 
           {/* Subhead */}
-          <p className="text-gray-500 max-w-2xl mx-auto mb-24 text-lg leading-relaxed font-medium">
+          <p className="text-gray-500 max-w-2xl mx-auto mb-16 md:mb-24 text-lg leading-relaxed font-medium">
             On social media, you follow each other, on Portrait you host<br className="hidden md:block" />
             each other—without relying on centralized platforms. This is<br className="hidden md:block" />
             how the web should have been—you're helping bring it back.
           </p>
 
-          {/* Diagram Container */}
-          <div className="relative w-full max-w-[900px] mx-auto h-[500px] md:h-[450px]">
+          {/* ================= DESKTOP LAYOUT (Hidden on Mobile) ================= */}
+          <div className="hidden md:block relative w-full max-w-[900px] mx-auto h-[500px] md:h-[450px]">
              
              {/* SVG Connections Layer */}
              <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ overflow: 'visible' }}>
@@ -78,7 +78,7 @@ const NetworkDiagram: React.FC = () => {
              </div>
 
              {/* --- ORANGE BUBBLE (Action) --- */}
-             <div className="absolute left-[28%] top-[54%] -translate-y-1/2 z-20 hidden md:block">
+             <div className="absolute left-[28%] top-[54%] -translate-y-1/2 z-20 block">
                 <div className="bg-[#FF9F43] text-white px-5 py-3 rounded-2xl rounded-bl-none shadow-lg shadow-orange-200 transform -translate-y-full">
                    <p className="text-xs font-bold leading-tight">
                      Requesting<br/>
@@ -118,8 +118,105 @@ const NetworkDiagram: React.FC = () => {
              </div>
           </div>
 
+          {/* ================= MOBILE LAYOUT (Visible on Mobile) ================= */}
+          <div className="md:hidden relative w-full flex flex-col items-center pb-8">
+            
+            {/* Requesting Bubble (Blue) */}
+            <div className="w-full flex justify-end max-w-xs mb-2 pr-2">
+               <div className="bg-[#0EA5E9] text-white px-4 py-2.5 rounded-2xl rounded-br-none shadow-lg shadow-blue-200 relative">
+                  <p className="text-sm font-bold leading-tight">
+                     Requesting<br/>
+                     Emma's Portrait
+                  </p>
+                  {/* Tail */}
+                  <div className="absolute bottom-0 right-0 translate-y-[40%] w-3 h-3 bg-[#0EA5E9] rotate-45 rounded-sm"></div>
+               </div>
+            </div>
+
+            {/* Requesters Row */}
+            <div className="flex items-center justify-center gap-2 w-full mb-1 relative z-10">
+               {/* Ghost Left */}
+               <div className="flex items-center gap-2 opacity-30 scale-90">
+                  <div className="w-8 h-8 rounded-full bg-gray-100 border border-gray-200"></div>
+                  <div className="w-6 h-1 bg-gray-200 rounded-full"></div>
+               </div>
+               
+               {/* John */}
+               <div className="flex items-center gap-2 pl-1.5 pr-3 py-1.5 rounded-full border border-gray-200 bg-white shadow-sm z-10">
+                  <div className="w-8 h-8 rounded-full bg-gray-100 overflow-hidden p-0.5 border border-gray-100">
+                     <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=John&backgroundColor=b6e3f4" className="w-full h-full rounded-full" alt="John"/>
+                  </div>
+                  <span className="font-bold text-gray-700 text-sm">John</span>
+               </div>
+
+               {/* Ghost Right */}
+               <div className="flex items-center gap-2 opacity-30 scale-90 flex-row-reverse">
+                  <div className="w-8 h-8 rounded-full bg-gray-100 border border-gray-200"></div>
+                  <div className="w-6 h-1 bg-gray-200 rounded-full"></div>
+               </div>
+            </div>
+
+            {/* Connecting Line Down 1 */}
+            <div className="h-10 w-px border-l border-dashed border-gray-300 opacity-50"></div>
+
+            {/* Center Node (You) */}
+            <div className="relative z-10 my-1">
+               <div className="w-20 h-20 rounded-full p-1 bg-white shadow-xl border border-gray-100">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" className="w-full h-full rounded-full object-cover" alt="You" />
+               </div>
+            </div>
+
+            {/* Connecting Line Down 2 */}
+            <div className="h-10 w-px border-l border-dashed border-gray-300 opacity-50"></div>
+
+            {/* Peers Label */}
+            <div className="px-5 py-1.5 rounded-full border border-gray-200 bg-white text-xs font-medium text-gray-500 shadow-sm z-10">
+               Peers you host
+            </div>
+
+            {/* Branching Lines */}
+            <div className="w-[280px] h-8 relative">
+               <svg className="absolute inset-0 w-full h-full overflow-visible">
+                   {/* Center stem */}
+                   <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#E5E7EB" strokeWidth="1.5" strokeDasharray="4 4" />
+                   {/* Left Branch */}
+                   <path d="M 50% 0 C 50% 20, 15% 10, 15% 32" stroke="#E5E7EB" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
+                   {/* Right Branch */}
+                   <path d="M 50% 0 C 50% 20, 85% 10, 85% 32" stroke="#E5E7EB" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
+               </svg>
+            </div>
+
+            {/* Peers Row */}
+            <div className="flex items-center justify-between w-full max-w-[320px] px-2 mb-8">
+                {/* Sarah */}
+                <div className="flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border border-gray-200 bg-white shadow-sm">
+                   <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Sarah&backgroundColor=e6e6e6" className="w-7 h-7 rounded-full bg-gray-50" alt="Sarah"/>
+                   <span className="text-sm font-bold text-gray-600">Sarah</span>
+                </div>
+
+                {/* Emma (Active) */}
+                <div className="flex items-center gap-2 pl-1 pr-3 py-1.5 rounded-full bg-[#0EA5E9] text-white shadow-md transform scale-105 relative -top-1">
+                   <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Emma&backgroundColor=e6e6e6" className="w-7 h-7 rounded-full border border-white/40" alt="Emma"/>
+                   <span className="text-sm font-bold">Emma</span>
+                </div>
+
+                {/* James */}
+                <div className="flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border border-gray-200 bg-white shadow-sm">
+                   <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=James&backgroundColor=e6e6e6" className="w-7 h-7 rounded-full bg-gray-50" alt="James"/>
+                   <span className="text-sm font-bold text-gray-600">James</span>
+                </div>
+            </div>
+
+            {/* Info Box */}
+             <div className="border border-gray-200 rounded-2xl p-5 text-center max-w-xs bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)] mx-auto">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  You and your peers store <strong className="text-gray-900">copies of each other's data</strong>, making it available to anyone on the internet.
+                </p>
+             </div>
+          </div>
+
           {/* Active Status */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-green-200/50 rounded-full text-green-600 text-xs font-medium shadow-sm mt-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-green-200/50 rounded-full text-green-600 text-xs font-medium shadow-sm mt-8 md:mt-8">
              <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
