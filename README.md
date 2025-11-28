@@ -79,3 +79,15 @@ Utilizes `perspective`, `rotateX`, and `rotateY` to create a depth-of-field effe
 │   └── ...               # Other sections (Navbar, FAQ, Footer)
 ├── lib/                  # Utilities (clsx, tailwind-merge)
 └── public/               # Static assets
+
+🎨 Design System
+Typography: Custom integration of Inter (Sans) and Playfair Display (Serif Italic) to match the brand's unique typographic voice.
+Colors: Utilizes a custom hero-glow conic gradient and specific brand colors defined in tailwind.config.ts.
+Icons: Consistent usage of lucide-react for lightweight, crisp vector icons.
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+📄 License
+This project is open source and available under the MIT License.
+<p align="center">
+Built with ❤️ by [Your Name]
+</p>
