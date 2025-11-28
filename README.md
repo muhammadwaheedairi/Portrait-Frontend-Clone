@@ -1,7 +1,3 @@
-Here’s the updated README with the **Technical Highlights** section removed and flow adjusted accordingly:
-
----
-
 # 🎨 Portrait.so Landing Page Recreation
 
 ![Project Banner](https://via.placeholder.com/1200x600.png?text=Portrait+Landing+Page+Preview)
@@ -110,8 +106,4 @@ Contributions, issues, and feature requests are welcome!
 
 This project is open-source under the **MIT License**.
 
-<p align="center">Built with ❤️ by [Your Name]</p>
-
----
-
-If you want, I can also **polish it further to make it ultra beginner-friendly** without losing the professional tone. Do you want me to do that?
+<p align="center">Built with ❤️ by Muhammad Waheed</p>
