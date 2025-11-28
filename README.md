@@ -1,6 +1,6 @@
 # 🎨 Portrait.so Landing Page Recreation
 
-![Project Banner](/Preview.png)
+![Project Banner](Preview.png)
 *A clean, high-fidelity recreation of the Portrait.so landing page.*
 
 This project recreates the **Portrait.so** decentralized website builder landing page pixel-perfectly.
